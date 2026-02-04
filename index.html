@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Cadastro de Lead</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      padding: 20px;
+    }
+    form {
+      background: #fff;
+      padding: 20px;
+      max-width: 400px;
+      margin: auto;
+      border-radius: 8px;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      box-sizing: border-box;
+    }
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 10px;
+      background: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <form method="POST" action="COLE_AQUI_A_URL_DO_WEBHOOK_DO_N8N">
+    
+    <label>Nome</label>
+    <input type="text" name="nome" required>
+
+    <label>Idade</label>
+    <input type="number" name="idade" required>
+
+    <label>CPF</label>
+    <input type="text" name="cpf" required>
+
+    <label>Telefone</label>
+    <input type="tel" name="telefone" required>
+
+    <label>Data do cadastro</label>
+    <input type="date" name="data" required>
+
+    <button type="submit">Enviar</button>
+
+  </form>
+
+</body>
+</html>
