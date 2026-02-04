@@ -40,11 +40,17 @@
     button:hover {
       background: #0056b3;
     }
+    .sucesso {
+      color: green;
+      text-align: center;
+      margin-top: 15px;
+      display: none;
+    }
   </style>
 </head>
 <body>
 
-  <form method="POST" action="https://gsmendes.app.n8n.cloud/webhook-test/63c1244f-83f2-482c-8152-20deec4c63d7">
+  <form id="leadForm">
 
     <label>Nome</label>
     <input type="text" name="nome" required>
@@ -66,7 +72,37 @@
 
     <button type="submit">Enviar</button>
 
+    <div class="sucesso" id="msgSucesso">
+      Lead enviado com sucesso ✅
+    </div>
+
   </form>
+
+  <script>
+    const form = document.getElementById('leadForm');
+    const msg = document.getElementById('msgSucesso');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault(); // não sai da página
+
+      const dados = new FormData(form);
+
+      fetch(https://gsmendes.app.n8n.cloud/webhook-test/63c1244f-83f2-482c-8152-20deec4c63d7, {
+        method: 'POST',
+        body: dados
+      })
+      .then(() => {
+        form.reset();           // limpa o formulário
+        msg.style.display = 'block'; // mostra mensagem
+        setTimeout(() => {
+          msg.style.display = 'none';
+        }, 3000);
+      })
+      .catch(() => {
+        alert('Erro ao enviar. Tente novamente.');
+      });
+    });
+  </script>
 
 </body>
 </html>
